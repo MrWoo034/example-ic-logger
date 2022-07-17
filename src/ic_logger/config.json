@@ -1,0 +1,20 @@
+[
+  {
+    "Prod": {
+      "service": "this-is-the-prod-service-key",
+      "logger": "info"
+    }
+  },
+  {
+    "Staging": {
+      "service": "this-is-only-a-test",
+      "logger": "debug"
+    }
+  },
+  {
+    "Local": {
+      "service": "put your serivce key here",
+      "logger": "trace"
+    }
+  }
+]

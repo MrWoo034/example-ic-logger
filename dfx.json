@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "dfx": "0.10.1",
+  "canisters": {
+    "ic_logger": {
+      "type": "rust",
+      "package": "ic_logger",
+      "candid": "src/ic_logger/ic_logger.did"
+    },
+    "ic_logger_assets": {
+      "type": "assets",
+      "source": [
+        "src/ic_logger_assets/assets"
+      ],
+      "dependencies": [
+        "ic_logger"
+      ]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "",
+      "args": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  }
+}
