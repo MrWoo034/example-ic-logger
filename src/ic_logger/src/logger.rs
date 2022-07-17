@@ -37,12 +37,30 @@ pub fn init() {
 
 fn get_log_level() -> LevelFilter {
     match CONFIG.logger {
-        "error" => LevelFilter::Error,
-        "warn" => LevelFilter::Warn,
-        "info" => LevelFilter::Info,
-        "debug" => LevelFilter::Debug,
-        "trace" => LevelFilter::Trace,
-        _ => LevelFilter::Error,
+        "error" => {
+            ic_cdk::println!("Setting log level to: {:?}", CONFIG.logger);
+            LevelFilter::Error
+        },
+        "warn" => {
+            ic_cdk::println!("Setting log level to: {:?}", CONFIG.logger);
+            LevelFilter::Warn
+        },
+        "info" => {
+            ic_cdk::println!("Setting log level to: {:?}", CONFIG.logger);
+            LevelFilter::Info
+        },
+        "debug" => {
+            ic_cdk::println!("Setting log level to: {:?}", CONFIG.logger);
+            LevelFilter::Debug
+        },
+        "trace" => {
+            ic_cdk::println!("Setting log level to: {:?}", CONFIG.logger);
+            LevelFilter::Trace
+        },
+        _ => {
+            ic_cdk::println!("Setting log level to: {:?}", CONFIG.logger);
+            LevelFilter::Error
+        },
     }
 }
 
