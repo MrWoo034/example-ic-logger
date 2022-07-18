@@ -1,8 +1,8 @@
 // build.rs
+use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
 use std::path::Path;
-use serde::{Serialize, Deserialize};
 
 const PROD: &str = "Prod";
 const STAGING: &str = "Staging";
@@ -44,32 +44,29 @@ fn main() {
             Profile::Prod(_config) => {
                 if env.as_str() == PROD {
                     config = _config;
-                    break
+                    break;
                 }
             }
             Profile::Staging(_config) => {
                 if env.as_str() == STAGING {
                     config = _config;
-                    break
+                    break;
                 }
             }
             Profile::Local(_config) => {
                 if env.as_str() == LOCAL {
                     config = _config;
-                    break
+                    break;
                 }
             }
         }
-    };
+    }
 
     let mut file_str: String = String::new();
     file_str.push_str(PRELUDE);
     file_str.push_str(&format!("const CONFIG: Config = {:?};", config));
     std::println!("file_str: {:?}", file_str);
-    fs::write(
-        &dest_path,
-        &file_str,
-    ).unwrap();
+    fs::write(&dest_path, &file_str).unwrap();
 
     // The rerun-if-changed instruction tells Cargo that the build script only needs to re-run if the build script itself changes.
     // Without this line, Cargo will automatically run the build script if any file in the package changes.
@@ -78,7 +75,6 @@ fn main() {
     println!("cargo:rerun-if-changed=config.json");
     println!("cargo:rerun-if-changed=.env");
 }
-
 
 const PRELUDE: &str = r#"
 use serde::{Serialize, Deserialize};

@@ -1,5 +1,5 @@
-use log::{debug, error, info, trace, warn};
 use ic_cdk_macros::init;
+use log::{debug, error, info, trace, warn};
 
 mod logger;
 
